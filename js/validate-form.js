@@ -1,4 +1,6 @@
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault(); // Prevent the default form submission
+
     let isValid = true;
 
     function showError(id, message) {
@@ -27,7 +29,10 @@ function validateForm() {
     }
 
     if (isValid) {
-        window.location.href = "thankyou.html";
+        console.log("Form is valid! Redirecting to thank you page..."); // Debugging
+        window.location.href = "thankyou.html"; // Redirect to thank you page
     }
-    return false;
 }
+
+// Attach the validation function to the form submit event
+document.getElementById("contactForm").addEventListener("submit", validateForm);
