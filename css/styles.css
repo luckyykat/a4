@@ -57,13 +57,18 @@ button:hover {
     font-size: 12px;
 }
 
+/* Validation Section */
 .validation {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    text-align: center; 
+    margin-top: 20px; 
+    display: block; 
+}
+
+.validation p {
+    font-weight: bold; 
+}
+
+.validation img {
+    display: block; 
+    margin: 5px auto; 
 }
