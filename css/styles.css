@@ -49,5 +49,6 @@ button {
 
 .error {
     color: red;
+    font-weight: bold;
     font-size: 12px;
 }
