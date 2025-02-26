@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <!-- The collects the user input and sends it to "thankyou.html" when submitted. -->
+    <form id="contactForm" action="thankyou.html" onsubmit="return validateForm();">
+      
+      <!-- First Name Field -->
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname">
+      <!-- This span can be used to display an error message if needed -->
+      <span id="errorFirstname" class="error"></span>
+
+      <!-- Last Name Field -->
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname">
+      <span id="errorLastname" class="error"></span>
+
+      <!-- Email Field -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <span id="errorEmail" class="error"></span>
+
+      <!-- Phone Number Field -->
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone">
+      <span id="errorPhone" class="error"></span>
+
+      <!-- Message Field -->
+      <label for="message">Message:</label>
+      <textarea id="message" name="message"></textarea>
+      <span id="errorMessage" class="error"></span>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Link to an external JavaScript file that contains form validation code -->
+  <script src="validate-form.js"></script>
+</body>
+</html>
