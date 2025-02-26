@@ -1,85 +1,66 @@
 function validateForm() {
     let isValid = true;
 
-    function showError(id, message) {
-        let errorElement = document.getElementById(id);
-        errorElement.innerText = message;
-        errorElement.style.display = "block";
-    }
-
-    function clearError(id) {
-        document.getElementById(id).innerText = "";
-    }
-
     // First Name Validation
-    let firstName = document.getElementById("firstname").value;
-    if (firstName.length < 2 || firstName.length > 20 || !isNaN(firstName)) {
-        showError("firstnameError", "First name must be 2-20 letters.");
+    let firstname = document.getElementById("firstname").value;
+    if (firstname === "" || !/^[A-Za-z]+$/.test(firstname)) {
+        document.getElementById("errorFirstname").innerText = "First name is required and must be letters only.";
         isValid = false;
     } else {
-        clearError("firstnameError");
+        document.getElementById("errorFirstname").innerText = "";
     }
 
     // Last Name Validation
-    let lastName = document.getElementById("lastname").value;
-    if (lastName.length < 2 || lastName.length > 20 || !isNaN(lastName)) {
-        showError("lastnameError", "Last name must be 2-20 letters.");
+    let lastname = document.getElementById("lastname").value;
+    if (lastname === "" || !/^[A-Za-z]+$/.test(lastname)) {
+        document.getElementById("errorLastname").innerText = "Last name is required and must be letters only.";
         isValid = false;
     } else {
-        clearError("lastnameError");
-    }
-
-    // Username Validation
-    let username = document.getElementById("username").value;
-    if (username.length < 3 || username.length > 12) {
-        showError("usernameError", "Username must be 3-12 characters.");
-        isValid = false;
-    } else {
-        clearError("usernameError");
-    }
-
-    // Password Validation
-    let password = document.getElementById("password").value;
-    let passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*!]).{7,}$/;
-    if (!password.match(passwordPattern)) {
-        showError("passwordError", "Password must have 7+ chars, 1 uppercase, 1 lowercase, 1 number, and 1 special character.");
-        isValid = false;
-    } else {
-        clearError("passwordError");
+        document.getElementById("errorLastname").innerText = "";
     }
 
     // Email Validation
     let email = document.getElementById("email").value;
-    if (!email.includes("@") || !email.includes(".")) {
-        showError("emailError", "Invalid email format.");
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        document.getElementById("errorEmail").innerText = "Invalid email format.";
         isValid = false;
     } else {
-        clearError("emailError");
+        document.getElementById("errorEmail").innerText = "";
     }
 
-    // Phone Validation (10-digit format)
+    // Phone Number Validation
     let phone = document.getElementById("phone").value;
-    let phonePattern = /^\d{10}$/;
+    let phonePattern = /^\d{10,15}$/;
     if (!phone.match(phonePattern)) {
-        showError("phoneError", "Phone must be 10 digits.");
+        document.getElementById("errorPhone").innerText = "Enter a valid 10-15 digit phone number.";
         isValid = false;
     } else {
-        clearError("phoneError");
+        document.getElementById("errorPhone").innerText = "";
     }
 
-    // Zip Code Validation (only if country is USA)
-    let country = document.getElementById("country").value;
-    let zipcode = document.getElementById("zipcode").value;
-    if (country === "USA" && zipcode.length !== 5) {
-        showError("zipcodeError", "Zip Code must be 5 digits.");
+    // Password Validation
+    let password = document.getElementById("password").value;
+    if (password.length < 7 || !/[A-Z]/.test(password) || !/[0-9]/.test(password) || !/[!@#$%^&*]/.test(password)) {
+        document.getElementById("errorPassword").innerText = "Password must be 7+ characters, include an uppercase letter, a number, and a special character.";
         isValid = false;
     } else {
-        clearError("zipcodeError");
+        document.getElementById("errorPassword").innerText = "";
     }
 
+    // Address Validation
+    let address = document.getElementById("address").value;
+    if (address === "") {
+        document.getElementById("errorAddress").innerText = "Address is required.";
+        isValid = false;
+    } else {
+        document.getElementById("errorAddress").innerText = "";
+    }
+
+    // Redirect to Thank You Page if Valid
     if (isValid) {
         window.location.href = "thankyou.html";
     }
 
-    return false; // Prevent form submission if validation fails
+    return false;
 }
