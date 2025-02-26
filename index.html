@@ -11,7 +11,7 @@
 
     <div class="container">
         <h2>Contact Us</h2>
-        <form id="contactForm" onsubmit="return validateForm()">
+        <form id="contactForm">
 
             <!-- First & Last Name -->
             <label for="firstname">First Name:</label>
@@ -69,6 +69,11 @@
                 <option value="Canada">Canada</option>
             </select>
             <span class="error" id="errorCountry"></span>
+
+            <!-- Zip Code Field -->
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode">
+            <span class="error" id="errorZipcode"></span>
 
             <button type="submit">Submit</button>
         </form>
