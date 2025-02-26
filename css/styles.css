@@ -57,21 +57,15 @@ button:hover {
     font-size: 12px;
 }
 
-/* Validation Section */
-.validation {
-    text-align: center; 
-    margin-top: 20px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light grey background */
+    width: 100%;
 }
 
-.validation p {
-    font-weight: bold;
-}
-
-.validation img {
-    width: 88px; 
-    height: 31px;
-    margin: 5px auto;
+.footer img {
+    display: inline-block;
+    margin: 10px;
 }
