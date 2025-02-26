@@ -1,10 +1,12 @@
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault(); // Prevent default form submission
+
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
     let errorMessage = document.getElementById("error-message");
 
-    // Check if any field is empty
+    // Check if fields are empty
     if (name === "" || email === "" || message === "") {
         errorMessage.innerText = "All fields are required!";
         return false;
@@ -16,8 +18,9 @@ function validateForm() {
         return false;
     }
 
-    // If everything is valid, alert and redirect
-    alert("Form submitted successfully!");
+    // Redirect to thank you page
     window.location.href = "thankyou.html";
-    return false; // Prevent default form submission
 }
+
+// Attach event listener to the form
+document.getElementById("contactForm").addEventListener("submit", validateForm);
