@@ -26,14 +26,6 @@ function validateForm() {
         clearError("errorConfirmPassword");
     }
 
-    let resume = document.getElementById("resume").value;
-    if (!resume.endsWith(".pdf")) {
-        showError("errorResume", "Only PDF files are allowed.");
-        isValid = false;
-    } else {
-        clearError("errorResume");
-    }
-
     if (isValid) {
         window.location.href = "thankyou.html";
     }
