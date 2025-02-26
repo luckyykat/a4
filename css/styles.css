@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f8f9fa;
+    background: #E6E6FA; /* Lavender */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,12 +39,16 @@ input, select {
 
 button {
     margin-top: 10px;
-    background: #28a745;
+    background: #6A5ACD; /* Medium Purple */
     color: white;
     border: none;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+button:hover {
+    background: #836FFF; /* Slightly lighter purple on hover */
 }
 
 .error {
