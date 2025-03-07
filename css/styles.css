@@ -1,95 +1,66 @@
 body {
     font-family: Arial, sans-serif;
-    background: #E6E6FA; /* Lavender */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-
-h2 {
-    text-align: center;
+    background-color: #E6E6FA; /* Lavender Background */
     color: #333;
+    text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-input, select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    margin-top: 10px;
-    background: #6A5ACD; /* Medium Purple */
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #836FFF; /* Slightly lighter purple on hover */
-}
-
-.error {
-    color: red;
-    font-weight: bold;
-    font-size: 12px;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Main container for footer */
+/* Form Container */
 .container {
-    width: 100%;
-    max-width: 500px; 
     background: white;
+    width: 50%;
+    margin: auto;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer Position */
-.footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-    bottom: 0;
+/* Form Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
-/* Aligned Validation Images */
-.footer img {
-    display: inline-block;
-    margin: 5px;
-    height: 31px;
-    width: auto;
+/* Input Fields */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Error Messages */
+.error {
+    color: red;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Submit Button */
+button {
+    background-color: #6A0DAD; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #520885;
+}
+
+/* Footer Validation */
+footer {
+    margin-top: 20px;
+}
+
+footer img {
+    width: 100px;
+    margin: 10px;
 }
