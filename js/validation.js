@@ -1,47 +1,82 @@
+// Function to validate form on submission
 function validateForm(event) {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevents form from submitting if validation fails
 
-    let isValid = true;
+    // Clear previous errors
+    document.querySelectorAll(".error").forEach(error => error.innerText = "");
 
-    function showError(id, message) {
-        document.getElementById(id).innerText = message;
-    }
+    let isValid = true; 
 
-    function clearError(id) {
-        document.getElementById(id).innerText = "";
-    }
+    // Get input values
+    let firstName = document.getElementById("firstName").value.trim();
+    let lastName = document.getElementById("lastName").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let city = document.getElementById("city").value.trim();
+    let state = document.getElementById("state").value;
+    let country = document.getElementById("country").value;
+    let zipCode = document.getElementById("zipCode").value.trim();
 
-    let firstname = document.getElementById("firstname").value;
-    if (!firstname.match(/^[A-Za-z]+$/)) {
-        showError("errorFirstname", "First name must contain only letters.");
+    // Validate First Name Field
+    if (firstName === "") {
+        showError("errorFirstName", "First name is required.");
         isValid = false;
-    } else {
-        clearError("errorFirstname");
     }
-
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
-    if (password !== confirmPassword) {
-        showError("errorConfirmPassword", "Passwords must match.");
+   // Validate Last Name Field 
+    if (lastName === "") {
+        showError("errorLastName", "Last name is required.");
         isValid = false;
-    } else {
-        clearError("errorConfirmPassword");
     }
-
-    let zipcode = document.getElementById("zipcode").value;
-    let zipPattern = /^\d{5}$/;
-    if (!zipcode.match(zipPattern)) {
-        showError("errorZipcode", "Zip Code must be exactly 5 digits.");
+    // Validate Email
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email)) {
+        showError("errorEmail", "Enter a valid email address.");
         isValid = false;
-    } else {
-        clearError("errorZipcode");
+    }
+    // Validate Phone
+    let phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phone)) {
+        showError("errorPhone", "Enter a valid 10-digit phone number.");
+        isValid = false;
+    }
+     // Validate Address
+    if (address === "") {
+        showError("errorAddress", "Address is required.");
+        isValid = false;
+    }
+     // Validate City
+    if (city === "") {
+        showError("errorCity", "City is required.");
+        isValid = false;
+    }
+    // Validate State
+    if (state === "") {
+        showError("errorState", "Please select a state.");
+        isValid = false;
+    }
+  // Validate Country
+    if (country === "") {
+        showError("errorCountry", "Country is required.");
+        isValid = false;
+    }
+  // Validate Zip Code
+    let zipPattern = /^[0-9]{5}$/;
+    if (!zipPattern.test(zipCode)) {
+        showError("errorZipCode", "Enter a valid 5-digit zip code.");
+        isValid = false;
     }
 
+    // Submit form if all fields are valid
     if (isValid) {
-        console.log("Form is valid! Redirecting to thank you page...");
-        window.location.href = "thankyou.html"; // Redirect to thank you page
+        document.getElementById("contactForm").submit();
     }
 }
 
-// Attach the validation function to the form submit event
+// Function to display errors under each field
+function showError(elementId, message) {
+    document.getElementById(elementId).innerText = message;
+}
+
+// Attach validation to form submission
 document.getElementById("contactForm").addEventListener("submit", validateForm);
